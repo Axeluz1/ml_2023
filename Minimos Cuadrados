@@ -1,0 +1,34 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+#vectores para valor x
+xi=np.array([1.0, 1.6, 3.4, 4.0, 5.2])
+
+#vectores para valor y
+yi=np.array([1.2, 2.0, 2.4, 3.5, 3.5])
+
+#tamaño del vector
+n=len(xi)
+
+#operaciones de sumatorias y nombre de variables
+Sum_xi=sum(xi)
+Sum_yi=sum(yi)
+Sum_xx=sum(xi**2)
+Sum_xy=sum(xi*yi)
+a=((n)*(Sum_xy)-(Sum_xi)*(Sum_yi))/((n)*(Sum_xx)-(Sum_xi)**2)
+
+b=((Sum_yi)*(Sum_xx)-(Sum_xy)*(Sum_xi))/((n)*(Sum_xx)-(Sum_xi)**2)
+
+#impresion de resultados 
+print(Sum_xi, Sum_yi, Sum_xx, Sum_xy, a, b)
+
+x=np.linspace(0, 5, 4)
+y=a+b*x
+
+#Grafico de los puntos y la recta de ajuste--------------------------
+plt.figure(1)
+plt.scatter(xi, yi, color='b')
+plt.grid(linestyle='dotted')
+plt.plot(x, y, color='g')
+plt.xlim(0, 5)
+plt.show()
